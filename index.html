@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preetha Tours & Travels - Your Journey Starts Here</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons (for standard icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Font Awesome (specifically for WhatsApp and social brand icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJt7mE5pQ5sA8P/uE/7q7g4zUfR64Tq2lQ7/G5uBf8N4j6O7Fj4+R5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom styles for color configuration and Inter font */
+        :root {
+            --primary-blue: #1E40AF; /* Deep Blue (Tailwind Blue-800) */
+            --accent-blue: #3B82F6;  /* Bright Blue (Tailwind Blue-500) */
+            font-family: 'Inter', sans-serif;
+        }
+        .text-primary { color: var(--primary-blue); }
+        .bg-primary { background-color: var(--primary-blue); }
+        .bg-accent { background-color: var(--accent-blue); }
+        .border-primary { border-color: var(--primary-blue); }
+        .hover\:bg-accent:hover { background-color: var(--accent-blue); }
+
+        /* Smooth scrolling for anchors */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="text-3xl font-extrabold tracking-tight text-primary flex items-center">
+                    <i data-lucide="plane" class="w-7 h-7 mr-2"></i>
+                    PREETHA TOURS
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 font-medium">
+                    <a href="#services" class="text-gray-600 hover:text-primary transition duration-150">Services</a>
+                    <a href="#fleet" class="text-gray-600 hover:text-primary transition duration-150">Fleet</a>
+                    <a href="#packages" class="text-gray-600 hover:text-primary transition duration-150">Packages</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary transition duration-150">About Us</a>
+                    <a href="#contact" class="px-4 py-2 rounded-full bg-accent text-white hover:bg-primary transition duration-150 shadow-md">Book Now</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <a href="#services" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 border-t" onclick="closeMenu()">Services</a>
+            <a href="#fleet" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 border-t" onclick="closeMenu()">Fleet</a>
+            <a href="#packages" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 border-t" onclick="closeMenu()">Packages</a>
+            <a href="#about" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 border-t" onclick="closeMenu()">About Us</a>
+            <a href="#contact" class="block py-3 px-4 bg-accent text-white text-center hover:bg-primary" onclick="closeMenu()">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-24 md:py-36 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-4">
+                Explore the World, Worry-Free.
+            </h1>
+            <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Your reliable partner for bespoke international and domestic tours.
+            </p>
+            <a href="#contact" class="inline-block px-10 py-4 text-lg font-bold text-white bg-accent rounded-xl shadow-2xl transform hover:scale-[1.03] transition duration-300 hover:bg-primary">
+                Plan Your Dream Trip Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Our Premier Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Card 1: Domestic Tours -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-accent">
+                    <i data-lucide="map" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Custom South India Tours</h3>
+                    <p class="text-gray-600">Expertly planned packages for **Kerala, Tamil Nadu**, and other domestic destinations, ensuring memorable trips.</p>
+                </div>
+                
+                <!-- Service Card 2: Chauffeur Transport (Driver only, no self-drive rental) -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-accent">
+                    <i data-lucide="car" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Chauffeur-Driven Car & Bus</h3>
+                    <p class="text-gray-600">Premium **Car + Driver** and **Bus + Driver** services for local and interstate travel. No self-drive car rentals.</p>
+                </div>
+
+                <!-- Service Card 3: New - Airport/Train Transfers -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-accent">
+                    <i data-lucide="send" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Airport & Railway Transfers</h3>
+                    <p class="text-gray-600">Reliable and punctual **Airport Pickup, Drop**, and **Train Station Transfers** across all major South Indian cities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Vehicle Fleet -->
+    <section id="fleet" class="py-16 md:py-24 bg-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Our Premium Vehicle Fleet</h2>
+            <p class="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                Travel in comfort and style with our well-maintained, chauffeur-driven vehicles, perfect for any group size.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <!-- Vehicle Card 1: Toyota Innova -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg border-b-4 border-accent">
+                    <img src="https://placehold.co/600x400/004488/ffffff?text=Toyota+Innova+Car" alt="Toyota Innova" class="w-full h-32 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/004488/ffffff?text=Innova'">
+                    <div class="p-4 text-center">
+                        <h4 class="text-lg font-semibold text-gray-900">Toyota Innova / Crysta</h4>
+                        <p class="text-sm text-gray-500">Luxury SUV/MUV (Up to 7 Seats)</p>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2: Swift Dzire (Sedan) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg border-b-4 border-accent">
+                    <img src="https://placehold.co/600x400/8B0000/ffffff?text=Swift+Dzire+Sedan" alt="Maruti Suzuki Swift Dzire" class="w-full h-32 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8B0000/ffffff?text=Swift+Dzire'">
+                    <div class="p-4 text-center">
+                        <h4 class="text-lg font-semibold text-gray-900">Maruti Swift Dzire</h4>
+                        <p class="text-sm text-gray-500">Comfort Sedan (Up to 4 Seats)</p>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3: 15 Seater Traveler (Tempo) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg border-b-4 border-accent">
+                    <img src="https://placehold.co/600x400/006400/ffffff?text=15-Seater+Tempo+Traveller" alt="15 Seater Traveller Van" class="w-full h-32 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/006400/ffffff?text=15+Seater'">
+                    <div class="p-4 text-center">
+                        <h4 class="text-lg font-semibold text-gray-900">15-Seater Traveller</h4>
+                        <p class="text-sm text-gray-500">Group Van (For Medium Groups)</p>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 4: Second Innova/Versatility (Using a different placeholder color for variety) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg border-b-4 border-accent">
+                    <img src="https://placehold.co/600x400/4B0082/ffffff?text=Premium+Sedan+or+MUV" alt="Premium MUV" class="w-full h-32 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4B0082/ffffff?text=Premium+MUV'">
+                    <div class="p-4 text-center">
+                        <h4 class="text-lg font-semibold text-gray-900">Luxury/Premium MUVs</h4>
+                        <p class="text-sm text-gray-500">High-end options (On Request)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END NEW SECTION: Vehicle Fleet -->
+
+    <!-- Featured Packages Section -->
+    <section id="packages" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Kerala & Tamil Nadu Tours</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package Card 1: Alleppey (Kerala) - Backwaters -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Placeholder Image for Alleppey -->
+                    <img src="https://placehold.co/600x300/228B22/ffffff?text=Alleppey+Backwaters" alt="Alleppey Backwaters - Houseboat on a river" class="w-full h-48 object-cover rounded-t-xl" onerror="this.onerror=null; this.src='https://placehold.co/600x300/228B22/ffffff?text=Alleppey'">
+                    <!-- End Image -->
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent mb-2 block">4 Days / 3 Nights</span>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Kerala Backwater Bliss</h3>
+                        <p class="text-gray-600 mb-4">Experience the serene houseboat stay and the tranquil canals of **Alleppey** (The Venice of the East).</p>
+                        <a href="#contact" class="text-primary font-semibold flex items-center hover:text-accent">
+                            View Details
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 2: Munnar & Thekkady (Kerala) - Hills & Wildlife -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Placeholder Image for Munnar -->
+                    <img src="https://placehold.co/600x300/808000/ffffff?text=Munnar+Tea+Estates" alt="Munnar Tea Estates - Misty green hills" class="w-full h-48 object-cover rounded-t-xl" onerror="this.onerror=null; this.src='https://placehold.co/600x300/808000/ffffff?text=Munnar'">
+                    <!-- End Image -->
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent mb-2 block">6 Days / 5 Nights</span>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Kerala Hills & Wildlife</h3>
+                        <p class="text-gray-600 mb-4">Discover the misty tea gardens of **Munnar** and the exotic wildlife of **Thekkady** (Periyar Tiger Reserve).</p>
+                        <a href="#contact" class="text-primary font-semibold flex items-center hover:text-accent">
+                            View Details
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 3: Mahabalipuram & Pondicherry (Tamil Nadu) - Heritage & Coast -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Placeholder Image for TN Heritage -->
+                    <img src="https://placehold.co/600x300/4682B4/ffffff?text=Coastal+Heritage" alt="Mahabalipuram Shore Temple and Pondicherry beach" class="w-full h-48 object-cover rounded-t-xl" onerror="this.onerror=null; this.src='https://placehold.co/600x300/4682B4/ffffff?text=TN+Heritage'">
+                    <!-- End Image -->
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent mb-2 block">5 Days / 4 Nights</span>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">TN Temple & Coastal Heritage</h3>
+                        <p class="text-gray-600 mb-4">Visit the ancient rock-cut temples of **Mahabalipuram** and the French colonial charm of **Pondicherry**.</p>
+                        <a href="#contact" class="text-primary font-semibold flex items-center hover:text-accent">
+                            View Details
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Why Choose Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:order-2">
+                    <h2 class="text-4xl font-bold mb-6 text-gray-900">Why Travel With Preetha Tours?</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        At Preetha Tours & Travels, we believe travel should be seamless, personal, and transformative. We focus on minute details so you can focus on making memories.
+                    </p>
+                    <div class="space-y-4">
+                        <!-- Feature 1 -->
+                        <div class="flex items-start">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent flex-shrink-0 mt-1"></i>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold text-gray-800">24/7 Dedicated Support</h4>
+                                <p class="text-gray-500">Real-time assistance during your entire journey, globally.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="flex items-start">
+                            <i data-lucide="star" class="w-6 h-6 text-accent flex-shrink-0 mt-1"></i>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold text-gray-800">Handpicked Quality</h4>
+                                <p class="text-gray-500">Only the best hotels, flights, and experienced local guides.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="flex items-start">
+                            <i data-lucide="users" class="w-6 h-6 text-accent flex-shrink-0 mt-1"></i>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold text-gray-800">Custom Itineraries</h4>
+                                <p class="text-gray-500">Tailor-made trips to match your budget and travel style.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- IMAGE ADDED HERE -->
+                <div class="lg:order-1 relative p-6 rounded-3xl shadow-2xl flex items-center justify-center min-h-[300px] overflow-hidden">
+                    <img src="https://placehold.co/800x600/1E40AF/ffffff?text=PREETHA+TRAVELS" alt="Preetha Tours travel visual" class="w-full h-full object-cover rounded-3xl" onerror="this.onerror=null; this.src='https://placehold.co/800x600/1E40AF/ffffff?text=TRAVEL'">
+                    <!-- Overlaying the quote for visibility -->
+                    <p class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white leading-snug text-center max-w-sm p-4 bg-primary/40 rounded-3xl">
+                        "The best way to experience the world."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Get a Free Quote</h2>
+
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-accent">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
+                    </div>
+                    <div>
+                        <label for="destination" class="block text-sm font-medium text-gray-700 mb-1">Preferred Destination</label>
+                        <input type="text" id="destination" name="destination" placeholder="E.g., Munnar, Mahabalipuram, Custom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
+                    </div>
+                    <div>
+                        <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Trip Details / Requirements</label>
+                        <textarea id="details" name="details" rows="4" placeholder="Number of people, dates, budget, need for airport pickup, etc." required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-accent transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.01]">
+                        Submit Enquiry
+                    </button>
+                </form>
+
+                <div id="status-message" class="mt-6 hidden text-center p-4 rounded-lg text-sm font-medium" role="alert"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Company Info -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i data-lucide="plane" class="w-5 h-5 mr-2"></i>
+                    PREETHA TOURS & TRAVELS
+                </h3>
+                <p class="text-sm text-blue-200">Your trusted partner in making unforgettable travel experiences a reality.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#services" class="text-blue-200 hover:text-white transition duration-150">Services</a></li>
+                    <li><a href="#fleet" class="text-blue-200 hover:text-white transition duration-150">Fleet</a></li>
+                    <li><a href="#packages" class="text-blue-200 hover:text-white transition duration-150">Packages</a></li>
+                    <li><a href="#about" class="text-blue-200 hover:text-white transition duration-150">About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                <p class="text-sm text-blue-200 flex items-center mb-2">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    Preethatourstravels@gmail.com
+                </p>
+                <p class="text-sm text-blue-200 flex items-center mb-2">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                    +91 98951 14503
+                </p>
+                <p class="text-sm text-blue-200 flex items-start">
+                    <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1"></i>
+                    Trivandrum, Vattiyoorkavu, Panankara
+                </p>
+            </div>
+
+            <!-- Social Media (WhatsApp fixed with Font Awesome) -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <!-- WhatsApp Link -->
+                    <a href="https://wa.me/919895114503" target="_blank" class="w-8 h-8 flex items-center justify-center bg-accent rounded-full hover:bg-white hover:text-primary transition duration-150" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-white text-base"></i>
+                    </a>
+                    <!-- Other Social Links -->
+                    <a href="#" class="w-8 h-8 flex items-center justify-center bg-accent rounded-full hover:bg-white hover:text-primary transition duration-150" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 flex items-center justify-center bg-accent rounded-full hover:bg-white hover:text-primary transition duration-150" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 flex items-center justify-center bg-accent rounded-full hover:bg-white hover:text-primary transition duration-150" aria-label="Twitter">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-blue-700 text-center">
+            <p class="text-sm text-blue-300">&copy; 2025 Preetha Tours & Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Form Handling -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // 1. Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-render icon after change
+        }
+
+        function closeMenu() {
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMenu();
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+
+
+        // 2. Simple Form Submission Simulation (Advanced UX)
+        const contactForm = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Clear previous message
+            statusMessage.classList.add('hidden');
+            statusMessage.textContent = '';
+            
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            submitButton.classList.add('opacity-70');
+
+            // Simulate network delay
+            setTimeout(() => {
+                // Get form data (for console logging/debugging)
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+                console.log('Form Submitted (Simulated):', data);
+
+                // Display success message using custom modal/div
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.remove('bg-red-100', 'text-red-800');
+                statusMessage.classList.add('bg-green-100', 'text-green-800');
+                statusMessage.innerHTML = '<span class="font-bold">Thank You!</span> Your enquiry has been sent successfully. We will contact you within 24 hours.';
+                
+                // Reset form and button
+                contactForm.reset();
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Enquiry';
+                submitButton.classList.remove('opacity-70');
+
+                // Auto-hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.classList.add('hidden');
+                }, 5000);
+
+            }, 1500); // 1.5 second delay
+        });
+    </script>
+
+</body>
+</html>
+
