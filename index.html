@@ -274,6 +274,22 @@
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Get a Free Quote</h2>
 
             <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-accent">
+                
+                <!-- Alternative Contact Methods -->
+                <div class="text-center mb-8">
+                    <p class="text-lg font-medium text-gray-700 mb-4">Prefer a direct chat?</p>
+                    <a href="https://wa.me/919895114503?text=Hello%20Preetha%20Tours,%20I%20have%20an%20enquiry%20about%20a%20tour." target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg shadow-lg text-white bg-green-500 hover:bg-green-600 transition duration-300">
+                        <i class="fab fa-whatsapp text-lg mr-2"></i>
+                        Message us on WhatsApp
+                    </a>
+                </div>
+                <div class="relative flex py-5 items-center">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-500 font-medium">OR FILL THE FORM BELOW</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+
                 <form id="contact-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -283,6 +299,11 @@
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
                     </div>
+                    <!-- NEW PHONE NUMBER FIELD -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
+                    </div>
                     <div>
                         <label for="destination" class="block text-sm font-medium text-gray-700 mb-1">Preferred Destination</label>
                         <input type="text" id="destination" name="destination" placeholder="E.g., Munnar, Mahabalipuram, Custom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
@@ -291,11 +312,13 @@
                         <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Trip Details / Requirements</label>
                         <textarea id="details" name="details" rows="4" placeholder="Number of people, dates, budget, need for airport pickup, etc." required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150"></textarea>
                     </div>
+                    <!-- Button will now trigger mailto link -->
                     <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-accent transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.01]">
-                        Submit Enquiry
+                        Submit Enquiry & Open Email
                     </button>
                 </form>
 
+                <!-- Status message area to guide the user on mailto functionality -->
                 <div id="status-message" class="mt-6 hidden text-center p-4 rounded-lg text-sm font-medium" role="alert"></div>
             </div>
         </div>
@@ -330,11 +353,16 @@
                 <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
                 <p class="text-sm text-blue-200 flex items-center mb-2">
                     <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
-                    Preethatourstravels@gmail.com
+                    preethatourtravels01@gmail.com
                 </p>
                 <p class="text-sm text-blue-200 flex items-center mb-2">
                     <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
                     +91 98951 14503
+                </p>
+                <!-- NEW PHONE NUMBER ADDED -->
+                <p class="text-sm text-blue-200 flex items-center mb-2">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                    +91 95261 48716
                 </p>
                 <p class="text-sm text-blue-200 flex items-start">
                     <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1"></i>
@@ -398,7 +426,7 @@
         menuButton.addEventListener('click', toggleMenu);
 
 
-        // 2. Simple Form Submission Simulation (Advanced UX)
+        // 2. Form Submission Handler - Uses mailto: protocol
         const contactForm = document.getElementById('contact-form');
         const statusMessage = document.getElementById('status-message');
 
@@ -412,34 +440,52 @@
             // Show loading state
             const submitButton = contactForm.querySelector('button[type="submit"]');
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            submitButton.textContent = 'Preparing Email...';
             submitButton.classList.add('opacity-70');
 
-            // Simulate network delay
-            setTimeout(() => {
-                // Get form data (for console logging/debugging)
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData.entries());
-                console.log('Form Submitted (Simulated):', data);
+            // Collect form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
 
-                // Display success message using custom modal/div
-                statusMessage.classList.remove('hidden');
-                statusMessage.classList.remove('bg-red-100', 'text-red-800');
-                statusMessage.classList.add('bg-green-100', 'text-green-800');
-                statusMessage.innerHTML = '<span class="font-bold">Thank You!</span> Your enquiry has been sent successfully. We will contact you within 24 hours.';
-                
-                // Reset form and button
+            const recipientEmail = 'preethatourtravels01@gmail.com';
+            
+            // Construct Subject Line
+            const subject = encodeURIComponent(`New Tour Enquiry: ${data.name}`);
+            
+            // Construct Email Body - Now includes Phone Number
+            let body = `Hello Preetha Tours & Travels Team,\n\n`;
+            body += `I am submitting a tour enquiry with the following details:\n\n`;
+            body += `Client Name: ${data.name}\n`;
+            body += `Client Email: ${data.email}\n`;
+            body += `Client Phone: ${data.phone}\n`; /* NEW PHONE LINE */
+            body += `Preferred Destination: ${data.destination || 'Not Specified'}\n`;
+            body += `Trip Details/Requirements:\n${data.details}\n\n`;
+            body += `Please get back to me as soon as possible. Thank you.`;
+            
+            // Create the mailto link
+            const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+            // Display message and open mail client
+            statusMessage.classList.remove('hidden');
+            statusMessage.classList.remove('bg-red-100', 'text-red-800');
+            statusMessage.classList.add('bg-blue-100', 'text-blue-800');
+            statusMessage.innerHTML = '<span class="font-bold">Email Client Opening!</span> Please review the pre-filled message and click "Send" in your email application.';
+            
+            // Open the mail client
+            window.location.href = mailtoLink;
+            
+            // Reset form and button state after a short delay
+            setTimeout(() => {
                 contactForm.reset();
                 submitButton.disabled = false;
-                submitButton.textContent = 'Submit Enquiry';
+                submitButton.textContent = 'Submit Enquiry & Open Email';
                 submitButton.classList.remove('opacity-70');
-
-                // Auto-hide message after 5 seconds
-                setTimeout(() => {
-                    statusMessage.classList.add('hidden');
-                }, 5000);
-
-            }, 1500); // 1.5 second delay
+            }, 1000);
+            
+            // Auto-hide the blue status message
+            setTimeout(() => {
+                statusMessage.classList.add('hidden');
+            }, 8000);
         });
     </script>
 
