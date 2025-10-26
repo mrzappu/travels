@@ -299,7 +299,7 @@
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
                     </div>
-                    <!-- NEW PHONE NUMBER FIELD -->
+                    <!-- PHONE NUMBER FIELD -->
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent transition duration-150">
@@ -352,8 +352,9 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
                 <p class="text-sm text-blue-200 flex items-center mb-2">
+                    <!-- UPDATED EMAIL ADDRESS IN FOOTER -->
                     <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
-                    preethatourtravels01@gmail.com
+                    preethatourstravels01@gmail.com
                 </p>
                 <p class="text-sm text-blue-200 flex items-center mb-2">
                     <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
@@ -447,17 +448,18 @@
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
-            const recipientEmail = 'preethatourtravels01@gmail.com';
+            // *** UPDATED RECIPIENT EMAIL ADDRESS HERE ***
+            const recipientEmail = 'preethatourstravels01@gmail.com'; 
             
             // Construct Subject Line
             const subject = encodeURIComponent(`New Tour Enquiry: ${data.name}`);
             
-            // Construct Email Body - Now includes Phone Number
+            // Construct Email Body - Includes Phone Number
             let body = `Hello Preetha Tours & Travels Team,\n\n`;
             body += `I am submitting a tour enquiry with the following details:\n\n`;
             body += `Client Name: ${data.name}\n`;
             body += `Client Email: ${data.email}\n`;
-            body += `Client Phone: ${data.phone}\n`; /* NEW PHONE LINE */
+            body += `Client Phone: ${data.phone}\n`; 
             body += `Preferred Destination: ${data.destination || 'Not Specified'}\n`;
             body += `Trip Details/Requirements:\n${data.details}\n\n`;
             body += `Please get back to me as soon as possible. Thank you.`;
